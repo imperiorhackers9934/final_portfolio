@@ -1,0 +1,141 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 186 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 255 50% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 186 100% 50%;
+    --radius: 0.5rem;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 186 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 186 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-accent/30 selection:text-white box-border;
+  }
+  
+  body {
+    @apply bg-scifi-darker text-foreground antialiased font-[Inter] overflow-x-hidden m-0 p-0;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-[Orbitron];
+  }
+
+  html {
+    @apply scroll-smooth overflow-x-hidden;
+  }
+  
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scifi-panel {
+    @apply backdrop-blur-lg bg-black/30 border border-scifi-cyan/30 shadow-[0_4px_12px_-2px_rgba(0,240,255,0.3)];
+  }
+  
+  .scifi-gradient {
+    @apply bg-gradient-to-br from-scifi-blue via-scifi-darker to-black;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+  }
+  
+  .neo-blur {
+    @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-primary {
+    @apply bg-gradient-to-br from-scifi-cyan via-scifi-cyan/80 to-scifi-cyan/60 bg-clip-text text-transparent;
+  }
+
+  .typing-text {
+    @apply overflow-hidden;
+  }
+  
+  .typing-cursor {
+    @apply inline-block;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Typing animation for the role text */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+  }
+  
+  .role-text {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .role-text-exit {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+  
+  /* Fix for mobile devices */
+  @media (max-width: 640px) {
+    .container {
+      @apply px-4;
+    }
+  }
+}
