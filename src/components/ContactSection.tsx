@@ -139,7 +139,7 @@ const ContactSection = () => {
           <div className="scifi-panel p-8 rounded-xl">
             <h3 className="text-2xl font-bold mb-6 text-white">Send a Message</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6" netlify>
+            <form onSubmit={handleSubmit} className="space-y-6" name='Contact' method="POST" data-netlify="true">
               <div>
                 <Input
                   name="name"
