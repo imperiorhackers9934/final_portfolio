@@ -4,7 +4,7 @@ Welcome to my portfolio website! This site showcases my projects, skills, and ex
 
 ## 🚀 Live Demo
 
-🔗 [View Live Site](https://yourdomain.com)
+🔗 [View Live Site](https://abouttanishq.netlify.app/)
 
 ## 🛠️ Tech Stack
 
