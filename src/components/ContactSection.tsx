@@ -21,7 +21,9 @@ const ContactSection = () => {
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const formDataToSend = new FormData(formData as any);
+  const form = e.target as HTMLFormElement;
+
+  const formDataToSend = new FormData(form);
 
   const encoded = new URLSearchParams(formDataToSend as any).toString();
 
