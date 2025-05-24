@@ -18,22 +18,38 @@ const ContactSection = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-const handleSubmit = async(e: React.FormEvent) => {
-    e.preventDefault();
-    // This would handle the form submission in a real app
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+
+  const formDataToSend = new FormData(form);
+
+  const encoded = new URLSearchParams(formDataToSend as any).toString();
+
+  const response = await fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encoded,
+  });
+
+  if (response.ok) {
     toast({
       title: "Message Sent",
       description: "Thanks for reaching out! I'll get back to you soon.",
       variant: "default",
     });
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  } else {
+    toast({
+      title: "Submission Failed",
+      description: "There was a problem. Please try again later.",
+      variant: "destructive",
     });
   }
+};
+
   return (
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
