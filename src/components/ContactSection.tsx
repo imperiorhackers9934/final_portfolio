@@ -21,11 +21,7 @@ const ContactSection = () => {
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
-  const form = e.target as HTMLFormElement;
-
-  const formDataToSend = new FormData(form);
-
-  const encoded = new URLSearchParams(formDataToSend as any).toString();
+  const encoded = new URLSearchParams(formData as any).toString();
 
   const response = await fetch('/', {
     method: 'POST',
