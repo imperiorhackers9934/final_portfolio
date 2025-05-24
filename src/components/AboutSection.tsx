@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 const AboutSection = () => {
   const handleDownloadCV = () => {
     // This would download a CV if implemented
-    window.open('https://hximboiknruyncrgrqjk.supabase.co/storage/v1/object/sign/mypersonals/Blue%20Simple%20Professional%20CV%20Resume.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteXBlcnNvbmFscy9CbHVlIFNpbXBsZSBQcm9mZXNzaW9uYWwgQ1YgUmVzdW1lLnBkZiIsImlhdCI6MTc0NDQ4NTQzOCwiZXhwIjoyMzc1MjA1NDM4fQ.vPj2k__jv93wPyppqwQxi8WlLfOl4tZH9UvqMFK_0mo', '_blank');
+    window.open('./Blue Simple Professional CV Resume.pdf', '_blank');
   };
 
   return (
@@ -64,7 +64,7 @@ const AboutSection = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-gradient-to-br from-scifi-blue to-scifi-darker overflow-hidden border border-scifi-cyan/50">
                   <img 
-                    src="https://hximboiknruyncrgrqjk.supabase.co/storage/v1/object/sign/mypersonals/tanishq.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteXBlcnNvbmFscy90YW5pc2hxLmpwZyIsImlhdCI6MTc0NDU1ODcwMiwiZXhwIjoyMzc1Mjc4NzAyfQ.fr3rJpOS-Bdh_3uYh4az1WpAtP8mgSmzSNUGCUKmwgI" 
+                    src="./tanishq.jpg" 
                     alt="Profile" 
                     className="w-full h-full object-cover opacity-70 mix-blend-lighten"
                   />
