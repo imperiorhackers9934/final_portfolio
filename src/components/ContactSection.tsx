@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Send, Mail, Phone, Github, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useToast } from "@/hooks/use-toast";
 import { Textarea } from '@/components/ui/textarea';
 
 const ContactSection = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,7 +18,22 @@ const ContactSection = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
+const handleSubmit = async(e: React.FormEvent) => {
+    e.preventDefault();
+    // This would handle the form submission in a real app
+    toast({
+      title: "Message Sent",
+      description: "Thanks for reaching out! I'll get back to you soon.",
+      variant: "default",
+    });
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+  }
   return (
     <section id="contact" className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -42,6 +59,7 @@ const ContactSection = () => {
               data-netlify="true"
               netlify-honeypot="bot-field"
               className="space-y-6"
+              onSubmit={handleSubmit}
             >
               {/* Netlify hidden fields */}
               <input type="hidden" name="form-name" value="contact" />
@@ -108,5 +126,6 @@ const ContactSection = () => {
     </section>
   );
 };
+
 
 export default ContactSection;
