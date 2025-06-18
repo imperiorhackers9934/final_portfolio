@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 const AboutSection = () => {
   const handleDownloadCV = () => {
     // This would download a CV if implemented
-    window.open('./Blue Simple Professional CV Resume.pdf', '_blank');
+    window.open('./MyResume.pdf', '_blank');
   };
 
   return (
